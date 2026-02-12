@@ -3,12 +3,16 @@ export interface Choice {
   nextId: string;
 }
 
+// THIS IS THE PART YOU NEED TO FIX
 export interface StoryNode {
   id: string;
   text: string;
-  choices: Choice[];
-  image?: string; 
-  isEnd?: boolean; 
+  choices?: Choice[];        // Added '?' to make it optional
+  image?: string;
+  isEnd?: boolean;
+  type?: 'default' | 'input'; // Added this
+  correctAnswer?: string;     // Added this
+  nextId?: string;            // Added this
 }
 
 export const story: Record<string, StoryNode> = {
